@@ -1,0 +1,5 @@
+outs:
+- md5: cbdbc91fd6430c5d981841570bda0d12
+  size: 1516656
+  hash: md5
+  path: california_housing_train.csv

@@ -33,3 +33,43 @@ stages:
       hash: md5
       md5: adf63b6ce20f7ee74f63d5dabb325226
       size: 10829967
+  preprocess:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: data/california_housing_test.csv
+      hash: md5
+      md5: 29f5021a44d76ffbe8a496ecf424b5a8
+      size: 378574
+    - path: data/california_housing_train.csv
+      hash: md5
+      md5: cbdbc91fd6430c5d981841570bda0d12
+      size: 1516656
+    - path: src/preprocessing.py
+      hash: md5
+      md5: 5f7633ed395b24aa4f2ad3cac7f4b60e
+      size: 2014
+    params:
+      params.yaml:
+        preprocessing.test_path: data/california_housing_test.csv
+        preprocessing.train_path: data/california_housing_train.csv
+    outs:
+    - path: data/preprocessing_pipeline.pkl
+      hash: md5
+      md5: e309b3e9a5b5faaee2e4fe5f52f47f5d
+      size: 1235
+    - path: data/processed_test_features.csv
+      hash: md5
+      md5: 5c435f0a0b7e54522a4f49ec672c232c
+      size: 658675
+    - path: data/processed_test_target.csv
+      hash: md5
+      md5: 2903cf024ef6300f9a596495640cfb0f
+      size: 24473
+    - path: data/processed_train_features.csv
+      hash: md5
+      md5: 3df899e8fe59b6cbd4233eeee280c9f6
+      size: 2633374
+    - path: data/processed_train_target.csv
+      hash: md5
+      md5: 46fedb3f66c8485f2b6947dd351fdc0b
+      size: 97961

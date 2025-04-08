@@ -1,0 +1,3 @@
+preprocessing:
+  train_path: data/california_housing_train.csv
+  test_path: data/california_housing_test.csv

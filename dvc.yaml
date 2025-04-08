@@ -1,15 +1,16 @@
 stages:
-  prepare:
-    cmd: python src/create_features_w_params.py
+  preprocess:
+    cmd: python src/preprocessing.py
     deps:
-      - data/adult.data
-      - data/adult.test
-      - src/create_features_w_params.py
+      - data/california_housing_train.csv
+      - data/california_housing_test.csv
+      - src/preprocessing.py
     params:
-      - features.chi2percentile
-      - features.train_path
-      - features.test_path
+      - preprocessing.train_path
+      - preprocessing.test_path
     outs:
-      - data/pipeline.pkl
-      - data/processed_train_data.csv
-      - data/processed_test_data.csv
+      - data/preprocessing_pipeline.pkl
+      - data/processed_train_features.csv
+      - data/processed_test_features.csv
+      - data/processed_train_target.csv
+      - data/processed_test_target.csv
