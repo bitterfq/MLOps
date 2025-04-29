@@ -9,7 +9,6 @@ app = FastAPI(
     version="0.1",
 )
 
-# Define the request body structure
 class CommentRequest(BaseModel):
     reddit_comment: str
 
@@ -17,7 +16,6 @@ class CommentRequest(BaseModel):
 @app.on_event('startup')
 def load_model():
     global model_pipeline
-    # Load the model directly using joblib as shown in the document
     model_pipeline = joblib.load("reddit_model_pipeline.joblib")
 
 # Root endpoint
@@ -30,10 +28,7 @@ def main():
 def predict(data: CommentRequest):
     # Prepare the data for prediction
     comment = [data.reddit_comment]
-    
-    # Make prediction
     predictions = model_pipeline.predict_proba(comment)
-    
     return {'Predictions': predictions.tolist()}
 
 if __name__ == "__main__":
